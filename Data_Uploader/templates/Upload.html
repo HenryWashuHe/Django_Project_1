@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,16 +23,45 @@
             <label class="input-group-text" for="inputGroupFile03">Upload file_1c</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    {% for row in rows_1 %}
-        <p>{{ row }}</p>
-    {% endfor%}
-    {% for row in rows_2 %}
-        <p>{{ row }}</p>
-    {% endfor%}
-{% for row in rows_3 %}
-        <p>{{ row }}</p>
-    {% endfor%}
+    </form></body></html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload_Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+  <h1 class="text-center mb-4">📄 Upload your order files</h1>
 
+  <form method="POST" enctype="multipart/form-data" class="p-4 border rounded bg-white shadow-sm">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="file1" class="form-label fw-bold">Upload file_1a (订单)</label>
+      <input type="file" class="form-control" name="file_1" required>
+    </div>
+    <div class="mb-3">
+      <label for="file2" class="form-label fw-bold">Upload file_1b (完成订单)</label>
+      <input type="file" class="form-control" name="file_2" required>
+    </div>
+    <div class="mb-3">
+      <label for="file3" class="form-label fw-bold">Upload file_1c (库存列表)</label>
+      <input type="file" class="form-control" name="file_3" required>
+    </div>
+    <div class="d-grid">
+      <button type="submit" class="btn btn-success btn-lg">🔧 Process & Prepare Download</button>
+    </div>
+  </form>
+
+  {% if success %}
+    <div class="alert alert-success mt-4 text-center">
+      ✅ Processing complete! Click the button below to download your file:
+      <br><br>
+      <a href="{% url 'download_csv' %}" class="btn btn-primary btn-lg">⬇️ Download 2a CSV</a>
+    </div>
+  {% endif %}
+</div>
 </body>
 </html>
+
