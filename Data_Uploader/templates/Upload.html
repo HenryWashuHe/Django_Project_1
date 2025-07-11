@@ -1,29 +1,3 @@
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Upload_Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-</head>
-<body>
-<h1 class="text-center">Upload your files here</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="input-group mb-3">
-        <input type="file" class="form-control" id="inputGroupFile01" name="file_1">
-            <label class="input-group-text" for="inputGroupFile01">Upload file_1a</label>
-        </div>
-        <div class="input-group mb-3">
-        <input type="file" class="form-control" id="inputGroupFile02" name="file_2">
-            <label class="input-group-text" for="inputGroupFile02">Upload file_1b</label>
-        </div>
-        <div class="input-group mb-3">
-        <input type="file" class="form-control" id="inputGroupFile03" name="file_3">
-            <label class="input-group-text" for="inputGroupFile03">Upload file_1c</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form></body></html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,29 +12,21 @@
   <form method="POST" enctype="multipart/form-data" class="p-4 border rounded bg-white shadow-sm">
     {% csrf_token %}
     <div class="mb-3">
-      <label for="file1" class="form-label fw-bold">Upload file_1a (订单)</label>
+      <label for="file1" class="form-label fw-bold">Upload file_1a</label>
       <input type="file" class="form-control" name="file_1" required>
     </div>
     <div class="mb-3">
-      <label for="file2" class="form-label fw-bold">Upload file_1b (完成订单)</label>
+      <label for="file2" class="form-label fw-bold">Upload file_1b</label>
       <input type="file" class="form-control" name="file_2" required>
     </div>
     <div class="mb-3">
-      <label for="file3" class="form-label fw-bold">Upload file_1c (库存列表)</label>
+      <label for="file3" class="form-label fw-bold">Upload file_1c</label>
       <input type="file" class="form-control" name="file_3" required>
     </div>
     <div class="d-grid">
       <button type="submit" class="btn btn-success btn-lg">🔧 Process & Prepare Download</button>
     </div>
   </form>
-
-  {% if success %}
-    <div class="alert alert-success mt-4 text-center">
-      ✅ Processing complete! Click the button below to download your file:
-      <br><br>
-      <a href="{% url 'download_csv' %}" class="btn btn-primary btn-lg">⬇️ Download 2a CSV</a>
-    </div>
-  {% endif %}
 </div>
 </body>
 </html>
